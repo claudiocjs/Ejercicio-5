@@ -1,0 +1,31 @@
+from ClaseAlumno import Alumno
+from claseListaAlumnos import ListaAlumnos
+from menu import switch
+import csv
+
+
+if __name__ == '__main__':
+    separador= ' '
+    bandera= False
+    archivo= open('conjuntodealumnos.csv')
+    reader= csv.reader(archivo,delimiter=',')
+    ConjuAlumnos= ListaAlumnos()
+    
+    for fila in reader:
+        print(fila)
+        
+    for i in range(len(fila)):
+        separado = fila[i].split(separador)
+        unalumno=Alumno(separado[0],separado[1],separado[2],int(separado[3]))
+        ConjuAlumnos.AgregarAlumno(unalumno)
+    
+    ConjuAlumnos.MostrarAlumnos()
+        
+    while not bandera:
+        print("MENU DE OPCIONES")
+        print("0: Salir.")
+        print("1: listar alumnos supera cant. maxima de inasistencia.")
+        print("2: Modificar cantidad maxima de Inacistencias permitidas.")
+        opcion= int(input("Ingrese una opción: "))
+        switch(opcion,ConjuAlumnos)
+        bandera = int(opcion)==0 # Si lee el 0 cambia la bandera a true y sale del menú
