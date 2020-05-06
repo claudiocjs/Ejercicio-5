@@ -1,0 +1,33 @@
+class Alumno:
+    __Nombre=''
+    __Año=''
+    __Divicion=''
+    __Inacistencia=0
+    InacisMax=11
+    TotClase=50
+    def __init__(self,nn='',año='',div='',faltas=0):
+        if isinstance(nn,str):
+            self.__Nombre=nn
+        if isinstance(año,str):
+            self.__Año=año
+        if isinstance(div,str):
+            self.__Divicion=div.upper()
+        if isinstance(faltas,int):
+            self.__Inacistencia=faltas
+    
+    def __str__(self):
+        return 'alumno: {0} ,año:{1}°{2} faltas: {3}'.format(self.__Nombre,self.__Año,self.__Divicion,self.__Inacistencia)
+    def get_Inacistencias(self):
+        return self.__Inacistencia
+    def get_Año(self):
+        return self.__Año
+    def get_divicion(self):
+        return self.__Divicion
+    def get_Nombre(self):
+        return self.__Nombre
+    @classmethod
+    def get_Inacis_Max(cls):
+        return cls.InacisMax
+    @classmethod
+    def get_Tot_Clases(cls):
+        return cls.TotClase
