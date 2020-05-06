@@ -1,0 +1,22 @@
+from ClaseAlumno import Alumno
+def opcion0(A):
+    print("Adiós")
+def opcion1(A):
+    a=input("ingrese año: ")
+    d=input("ingrese division: ")
+    print(' ')
+    A.alumnos_inacistentes(a,d)
+    input('')
+def opcion2(A):
+    maxfal=int(input('INGRESE CANTIDAD MAXIMA DE FALTAS: '))
+    Alumno.InacisMax=maxfal
+    print (Alumno.get_Inacis_Max())
+    input('')
+switcher = {
+    0: opcion0,
+    1: opcion1,
+    2: opcion2
+    }
+def switch(argument,lista):
+    func = switcher.get(argument, lambda: print("Opción incorrecta"))
+    func(lista)
