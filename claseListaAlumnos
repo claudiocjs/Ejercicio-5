@@ -1,0 +1,29 @@
+from ClaseAlumno import Alumno
+class ListaAlumnos:
+    __Alumnos=[]
+    def __init__(self):
+        self.__Alumnos=[]
+    def AgregarAlumno(self,a):
+        if isinstance(a,Alumno):
+            self.__Alumnos.append(a)
+    def MostrarAlumnos(self):
+        print('Imprimiendo Alumnos de la coleccion:')
+        for alu in self.__Alumnos:
+            print(alu)
+    def testlistaalumnos(self):
+        a1 = Alumno('martin','1','a',5)
+        a2 = Alumno('juan','2','b',15)
+        a3 = Alumno('marcos','3','a',1)
+        self.AgregarAlumno(a1)
+        self.AgregarAlumno(a2)
+        self.AgregarAlumno(a3)
+    def get_UnAlumno(self,indice):
+        return self.__Alumnos[indice]
+    def alumnos_inacistentes(self,a='',d=''):
+        if isinstance(a,str) and isinstance(d,str):
+            print ('{0:<10}{1:<10}'.format('NOMBRE','PROMEDIO'))
+            for i in range(len (self.__Alumnos )):
+                if self.__Alumnos[i].get_Año()==a and self.__Alumnos[i].get_divicion()==d.upper():
+                    if self.__Alumnos[i].get_Inacistencias()> Alumno.get_Inacis_Max():
+                        porcentaje=(self.__Alumnos[i].get_Inacistencias()/ Alumno.get_Tot_Clases())*100
+                        print("{0:<10}{1:>1}%".format(self.__Alumnos[i].get_Nombre(),porcentaje))
